@@ -1,3 +1,4 @@
+import * as React from 'react';
 // Components
 import { Card } from '../index';
 
@@ -8,16 +9,22 @@ import { ListCardContainer } from './styles';
 import IChuckData from '../../types/IChuckData';
 
 interface IListCardProps {
-    dataSource: IChuckData[];
+    dataSource: IChuckData[] | [];
 }
 
 const ListCard = ({ dataSource }: IListCardProps) => {
     return (
-        <ListCardContainer>
+        <ListCardContainer data-testid="ListCard">
             {dataSource &&
-                dataSource?.map(item => {
-                    return <Card key={item.id} {...item} />;
+                dataSource?.map((item, index) => {
+                    return Card && <Card key={index} {...item} />;
                 })}
+            {!dataSource?.length && (
+                <div>
+                    <h3>Nothing to show</h3>
+                    <p>Try to search something :)</p>
+                </div>
+            )}
         </ListCardContainer>
     );
 };

@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import { toast } from 'react-toastify';
 
 // Components
-import { Search, Card } from '../../components';
+import { Search, ListCard } from '../../components';
 
 // Services
 import { ChuckService } from '../../services';
@@ -78,16 +78,7 @@ const Home = () => {
                 <Search handleSubmit={handleSubmit} />
             </SearchContainer>
             <ContainerCards>
-                {dataSource &&
-                    dataSource?.map((item, index) => {
-                        return Card && <Card key={index} {...item} />;
-                    })}
-                {!dataSource?.length && (
-                    <div>
-                        <h3>Nothing to show</h3>
-                        <p>Try to search something :)</p>
-                    </div>
-                )}
+                <ListCard dataSource={dataSource} />
             </ContainerCards>
         </Container>
     );
