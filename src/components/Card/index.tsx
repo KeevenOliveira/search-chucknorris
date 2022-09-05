@@ -5,15 +5,7 @@ import IChuckData from '../../types/IChuckData';
 // Styles
 import { CardContainer, CardContent } from './styles';
 
-const Card = ({
-    categories,
-    created_at,
-    icon_url,
-    id,
-    updated_at,
-    url,
-    value,
-}: IChuckData) => {
+const Card = ({ url, value }: IChuckData) => {
     return (
         <CardContainer data-testid="Card">
             <CardContent href={url}>

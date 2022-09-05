@@ -35,8 +35,12 @@ const Home = () => {
     }, []);
 
     const handleSearch = useCallback(async (query: string) => {
-        const response = await ChuckService.getJokeBySearch(query);
-        setDataSource(response);
+        try {
+            const response = await ChuckService.getJokeBySearch(query);
+            setDataSource(response.result);
+        } catch (error) {
+            toast.error('Error to get jokes');
+        }
     }, []);
 
     const handleSubmit = useCallback(
@@ -51,23 +55,21 @@ const Home = () => {
                     toast.error('Please, enter a search');
                     return;
                 }
-                const result = await ChuckService.getJokeBySearch(
-                    String(search),
-                );
-                console.log(result, 'getJokeBySearch');
-                if (category) {
-                    const filtered = filterCategory(category, result);
-                }
-                // setDataSource(result);
+                const data = await ChuckService.getJokeBySearch(String(search));
                 history.push('/?query=' + search);
+                if (category) {
+                    const filtered = filterCategory(category, data);
+                    console.log(filtered, 'filtered');
+                    setDataSource(filtered as IChuckData[]);
+                    return;
+                }
+                setDataSource(data.result);
             } catch (error) {
                 toast.error('Error on search');
             }
         },
         [],
     );
-
-    console.log(dataSource);
 
     return (
         <Container data-testid="Home">
@@ -80,7 +82,7 @@ const Home = () => {
                     dataSource?.map((item, index) => {
                         return Card && <Card key={index} {...item} />;
                     })}
-                {!dataSource.length && (
+                {!dataSource?.length && (
                     <div>
                         <h3>Nothing to show</h3>
                         <p>Try to search something :)</p>

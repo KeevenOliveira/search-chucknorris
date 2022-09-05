@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { createBrowserHistory } from 'history';
 import Select from 'react-select/creatable';
+import { toast } from 'react-toastify';
 
 // Services
 import { ChuckService } from '../../services';
@@ -35,11 +36,19 @@ const Search: React.FC<ISearchProps> = ({ handleSubmit }) => {
     const [selectedCategory, setSelectedCategory] = useState<ISelectOption>();
 
     useEffect(() => {
+        const params = new URLSearchParams(history.location.search);
+        const query = params.get('query');
+        if (query) {
+            setSearch(query);
+        }
         async function getCategories() {
-            const result = await ChuckService.getCategories();
-            console.log(result, 'result');
-            const categoriesConverted = convertCategoryToDropdown(result);
-            setCategories(categoriesConverted as any);
+            try {
+                const result = await ChuckService.getCategories();
+                const categoriesConverted = convertCategoryToDropdown(result);
+                setCategories(categoriesConverted as any);
+            } catch (error) {
+                toast.error('Error to get categories');
+            }
         }
         getCategories();
     }, []);
