@@ -28,8 +28,8 @@ describe('filterCategory', () => {
             ],
         };
 
-        expect(() => filterCategory(null, data)).not.toThrow();
-        expect(filterCategory(null, data)).toEqual(data);
+        expect(() => filterCategory(undefined, data)).not.toThrow();
+        expect(filterCategory(undefined, data)).toEqual(data);
     });
 
     it('should return an array of jokes with the category', () => {

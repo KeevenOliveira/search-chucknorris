@@ -1,3 +1,4 @@
 import Search from './Search';
+import Card from './Card';
 
-export { Search };
+export { Search, Card };

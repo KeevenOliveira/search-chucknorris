@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
 
 export const SearchContainer = styled.section`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    position: absolute;
-    margin-top: -25px;
-    width: 100%;
-    overflow: hidden;
 `;
 
 export const Image = styled.img`
@@ -19,5 +20,14 @@ export const Image = styled.img`
 
     @media (max-width: 425px) {
         width: 50%;
+    }
+`;
+
+export const ContainerCards = styled.section`
+    div {
+        text-align: center;
+        h3 {
+            margin-top: 2rem;
+        }
     }
 `;

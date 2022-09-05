@@ -1,7 +1,7 @@
 import IResponseChuckQueryData from '../types/IResponseChuckQueryData';
 
 export const filterCategory = (
-    category: string | null,
+    category: string | undefined,
     data: IResponseChuckQueryData | null,
 ) => {
     if (!category) {
