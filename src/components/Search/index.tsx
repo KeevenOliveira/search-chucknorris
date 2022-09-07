@@ -50,35 +50,39 @@ const Search: React.FC<ISearchProps> = ({ handleSubmit }) => {
     }, [history.location.search]);
 
     return (
-        <SearchComponent
-            name="search-form"
-            onSubmit={env => handleSubmit(env, search, selectedCategory?.value)}
-            data-testid="search"
-        >
-            <DropdownContainer>
-                <Select
-                    data-testid="select"
-                    options={categories ?? []}
-                    onChange={e => {
-                        setSelectedCategory(e as ISelectOption);
+        <>
+            <SearchComponent
+                name="search-form"
+                onSubmit={env =>
+                    handleSubmit(env, search, selectedCategory?.value)
+                }
+                data-testid="search"
+            >
+                <DropdownContainer className="select">
+                    <Select
+                        data-testid="select"
+                        options={categories ?? []}
+                        onChange={e => {
+                            setSelectedCategory(e as ISelectOption);
+                        }}
+                    />
+                </DropdownContainer>
+                <InputSearch
+                    value={search}
+                    onChange={event => {
+                        setSearch(event.target.value);
+                        if (!event.target.value) {
+                            history.push('/');
+                        }
                     }}
+                    placeholder="Search"
+                    type={'search'}
                 />
-            </DropdownContainer>
-            <InputSearch
-                value={search}
-                onChange={event => {
-                    setSearch(event.target.value);
-                    if (!event.target.value) {
-                        history.push('/');
-                    }
-                }}
-                placeholder="Search"
-                type={'search'}
-            />
-            <SearchIcon type="submit">
-                <AiOutlineSearch size={SIZE_ICON} />
-            </SearchIcon>
-        </SearchComponent>
+                <SearchIcon type="submit">
+                    <AiOutlineSearch size={SIZE_ICON} />
+                </SearchIcon>
+            </SearchComponent>
+        </>
     );
 };
 

@@ -21,6 +21,10 @@ export const InputSearch = styled.input`
     @media (max-width: 425px) {
         width: 60%;
     }
+    @media (max-width: 768px) {
+        width: 55%;
+        border-radius: 1rem 0 0 1rem;
+    }
 `;
 
 export const SearchComponent = styled.form`
@@ -71,4 +75,7 @@ export const DropdownContainer = styled.div`
         width: 3rem;
     }
     background: #fff;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
