@@ -15,6 +15,9 @@ export const CardContent = styled.a`
     h1:last-child {
         font-size: 40px;
     }
+    h1:first-child {
+        text-align: start;
+    }
     h1:last-child {
         text-align: right;
     }

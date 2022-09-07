@@ -22,11 +22,7 @@ import { convertCategoryToDropdown } from '../../utils';
 
 // Types
 import ISearchProps from '../../types/ISearchProps';
-
-interface ISelectOption {
-    value: string;
-    label: string;
-}
+import ISelectOption from '../../types/ISelectOption';
 
 const Search: React.FC<ISearchProps> = ({ handleSubmit }) => {
     const history = createBrowserHistory();
@@ -45,13 +41,13 @@ const Search: React.FC<ISearchProps> = ({ handleSubmit }) => {
             try {
                 const result = await ChuckService.getCategories();
                 const categoriesConverted = convertCategoryToDropdown(result);
-                setCategories(categoriesConverted as any);
+                setCategories(categoriesConverted);
             } catch (error) {
                 toast.error('Error to get categories');
             }
         }
         getCategories();
-    }, []);
+    }, [history.location.search]);
 
     return (
         <SearchComponent
@@ -61,6 +57,7 @@ const Search: React.FC<ISearchProps> = ({ handleSubmit }) => {
         >
             <DropdownContainer>
                 <Select
+                    data-testid="select"
                     options={categories ?? []}
                     onChange={e => {
                         setSelectedCategory(e as ISelectOption);

@@ -1,6 +1,12 @@
-const convertCategoryToDropdown = (categories: string[]) => {
+import React from 'react';
+
+import ISelectOption from '../types/ISelectOption';
+
+const convertCategoryToDropdown = (
+    categories: string[],
+): React.SetStateAction<ISelectOption[]> => {
     if (!categories.length) {
-        return;
+        return [];
     }
     return categories?.map(category => ({
         value: category,

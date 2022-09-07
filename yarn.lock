@@ -8228,6 +8228,11 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-paginated-list@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/react-paginated-list/-/react-paginated-list-1.1.6.tgz#adea06921e5c87dec3073dc4c970e5c68394f394"
+  integrity sha512-hgKEcEZtl1KchLjFtaaY39Xro5ka5e2fvvf7IMWEq/nUOHs06sGt87Fxx0oLnYy9qsgbaokKREEk4xJBJpHBMA==
+
 react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"

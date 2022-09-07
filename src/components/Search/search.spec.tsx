@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-node-access */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import Search from './index';
@@ -11,14 +12,18 @@ jest.mock('axios', () => ({
 
 const handleSubmit = jest.fn();
 
+const renderSearch = () => {
+    render(<Search handleSubmit={handleSubmit} />);
+};
+
 describe('<Search/>', () => {
     it('should render search component', () => {
-        render(<Search handleSubmit={handleSubmit} />);
+        renderSearch();
         expect(screen.getByTestId('search')).toBeTruthy();
     });
 
     it('should render a input with type equals search', () => {
-        render(<Search handleSubmit={handleSubmit} />);
+        renderSearch();
         expect(screen.getByPlaceholderText('Search')).toHaveAttribute(
             'type',
             'search',
@@ -26,7 +31,7 @@ describe('<Search/>', () => {
     });
 
     it('should set letter in input', () => {
-        render(<Search handleSubmit={handleSubmit} />);
+        renderSearch();
         const input = screen.getByPlaceholderText('Search') as HTMLInputElement;
         expect(input).toBeTruthy();
         input.value = 'a';
@@ -34,14 +39,23 @@ describe('<Search/>', () => {
     });
 
     it('should render a form', () => {
-        render(<Search handleSubmit={handleSubmit} />);
+        renderSearch();
         expect(screen.getByRole('form')).toBeTruthy();
     });
 
     it('should call handleSubmit', () => {
-        render(<Search handleSubmit={handleSubmit} />);
+        renderSearch();
         const form = screen.getByRole('form');
         fireEvent.submit(form);
         expect(handleSubmit).toHaveBeenCalled();
+    });
+    it('should be possible select one value in Select component', () => {
+        renderSearch();
+        const category = document.getElementById(
+            'react-select-7-input',
+        ) as HTMLInputElement;
+        expect(category).toBeTruthy();
+        fireEvent.change(category, { target: { value: 'animal' } });
+        expect(category.value).toBe('animal');
     });
 });

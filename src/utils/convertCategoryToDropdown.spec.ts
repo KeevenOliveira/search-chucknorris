@@ -3,7 +3,7 @@ import convertCategoryToDropdown from './convertCategoryToDropdown';
 describe('convertCategoryToDropdown', () => {
     it('should return undefined if no categories are passed', () => {
         const result = convertCategoryToDropdown([]);
-        expect(result).toBeUndefined();
+        expect(result).toEqual([]);
     });
 
     it('should return an array of objects with value and label properties', () => {
