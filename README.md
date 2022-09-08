@@ -103,7 +103,7 @@ In this project I use the [Chuck Norris API](https://api.chucknorris.io/).
 
 | Properties | Types          |
 | ---------- | -------------- |
-| dataSource | IListCardProps |
+| dataSource | IChuckData[ ] / [ ] |
 
 ### 📌 Search
 
