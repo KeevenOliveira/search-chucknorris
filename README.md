@@ -1,6 +1,8 @@
 # Chuck Phrases 🔫
 ![chuck-readme](https://user-images.githubusercontent.com/66172398/189035281-494119fd-31e9-4ada-bab8-904b4126c8e2.png)
 
+[Click here to see deploy in vercel](https://search-chuckphrases.vercel.app/)
+
 ## Table of Contents 📝
 
 1. [How to install](#how-to-install)
