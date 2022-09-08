@@ -80,7 +80,7 @@ I did build this project to practice my knowledge about all technologies above. 
 
 ## API used
 
-In this project I use the [Chuck Norris API]('https://api.chucknorris.io/').
+In this project I use the [Chuck Norris API](https://api.chucknorris.io/).
 
 ## Components
 
