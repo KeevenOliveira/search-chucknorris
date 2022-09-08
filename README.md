@@ -1,12 +1,14 @@
 # Chuck Phrases 🔫
+![chuck-readme](https://user-images.githubusercontent.com/66172398/189035281-494119fd-31e9-4ada-bab8-904b4126c8e2.png)
 
 ## Table of Contents 📝
 
 1. [How to install](#how-to-install)
 2. [Technologies used](#technologies-used)
-3. [Project Objective](#project-objective)
-4. [API used](#api-used)
-5. [Components 🚀](#components-🚀)
+3. [Bests practices](#bests-practices)
+4. [Project Objective](#project-objective)
+5. [API used](#api-used)
+6. [Components](#components)
 
 ## How to install
 
@@ -46,7 +48,7 @@ yarn start
 
 📌 Have a fun!🎉😁
 
-## Technologies used 👊
+## Technologies used
 
 -   TypeScript;
 -   React;
@@ -60,7 +62,7 @@ yarn start
 -   Testing Library;
 -   Cypress;
 
-## Bests practices ✨
+## Bests practices
 
 -   Clean Code;
 -   Clean Architecture;
@@ -78,7 +80,7 @@ I did build this project to practice my knowledge about all technologies above. 
 
 In this project I use the [Chuck Norris API]('https://api.chucknorris.io/').
 
-## Components 🚀
+## Components
 
 ### 📌 Card
 
